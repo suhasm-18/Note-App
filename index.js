@@ -30,3 +30,23 @@ notesContainerEl.addEventListener("click",(event)=>{
         });
     }
 })
+// To prevent from the enter key button
+document.addEventListener("keydown",(event)=>{
+    if(event.key === "Enter"){
+        document.execCommand("insertLineBreak");
+        event.preventDefault();
+    }
+})
+
+// it shows all the notes which are in the local storage
+function showNotes(){
+    notesContainerEl.innerHTML = localStorage.getItem("notes");
+}
+
+// It updates the local storage 
+function updateNotesStorage(){
+    localStorage.setItem("notes",notesContainerEl.innerHTML);
+    }
+
+// By default it ca
+showNotes();
